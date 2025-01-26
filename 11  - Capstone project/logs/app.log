@@ -1,0 +1,2 @@
+2025-01-27 03:03:35,762 - SQL-запрос: SELECT * FROM business_data, параметры: ()
+2025-01-27 03:03:50,193 - SQL-запрос: SELECT name, profit FROM business_data WHERE profit > ?, параметры: (20000,)
