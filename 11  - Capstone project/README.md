@@ -1,46 +1,29 @@
+# AI Chatbot for Movie Data with SQL Integration
 
-# Capstone Project: Умный агент
+## Project Overview
 
-## Установка и запуск
+This project is a chatbot application that interacts with a SQLite database containing employee information. The bot uses OpenAI's GPT-4 to generate valid SQL queries based on user input. The system is integrated with Streamlit for the user interface, and it handles employee data, sending emails, and logging queries.
 
-1. Установите зависимости:
+Key features:
+- Querying employee data through the chatbot.
+- Dynamic SQL generation with OpenAI's GPT-4.
+- Filterable employee data using Streamlit's interface.
+- Salary distribution visualization via pie charts.
+
+## Project Requirements
+
+- Python 3.12 or below
+- Dependencies:
+  - OpenAI
+  - SQLite3 (included with Python)
+  - Pandas
+  - Streamlit
+  - Faker
+  - Matplotlib
+
+### Installation
+
+1. Clone or download this repository.
+2. Install the required dependencies using `pip`:
    ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Запустите приложение:
-   ```bash
-   streamlit run app.py
-   ```
-
-
-  ### Возможные запросы для использования с агентом:
-
-1. **Запросы на фильтрацию данных:**
-   - "Покажи все компании" — возвращает список всех компаний с их доходом и прибылью.
-   - "Покажи компании с прибылью выше 20000" — фильтрует компании с прибылью выше указанного значения.
-   - "Покажи компании с доходом выше 100000" — фильтрует компании с доходом выше указанного значения.
-
-2. **Запросы на агрегирование данных:**
-   - "Какая самая прибыльная компания?" — возвращает название компании с наибольшей прибылью.
-   - "Какая компания имеет наименьший доход?" — возвращает название компании с наименьшим доходом.
-   - "Какая средняя прибыль всех компаний?" — вычисляет среднюю прибыль всех компаний.
-
-3. **Запросы на сортировку данных:**
-   - "Отсортируй компании по прибыли" — возвращает компании, отсортированные по прибыли в порядке убывания.
-   - "Отсортируй компании по доходу" — возвращает компании, отсортированные по доходу в порядке убывания.
-
-4. **Запросы на выбор отдельных столбцов:**
-   - "Покажи только названия компаний" — возвращает список только с названиями всех компаний.
-
-5. **Запросы с вызовом API:**
-   - "Вызов API для теста" — выполняет вызов внешнего API (используется тестовый API `jsonplaceholder.typicode.com`).
-
-6. **Примеры сложных запросов (на будущее):**
-   - "Покажи компании с прибылью выше 20000 и отсортируй их по доходу" — пока не поддерживается напрямую, но может быть добавлено.
-   - "Какая общая прибыль всех компаний?" — может быть добавлено в будущем.
-
-### Поведение при ошибках:
-- Если запрос не распознан: "Запрос не поддерживается. Попробуйте другой запрос."
-
-   
+   pip install openai requests termcolor streamlit python-dotenv pandas matplotlib faker
