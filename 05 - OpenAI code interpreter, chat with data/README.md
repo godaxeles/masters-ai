@@ -13,7 +13,7 @@ This project implements two main functionalities:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/pdf-csv-processor.git
+git clone https://github.com/godaxeles/masters-ai.git
 cd pdf-csv-processor
 ```
 
