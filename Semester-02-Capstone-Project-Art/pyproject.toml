@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "art-capstone"
+version = "1.0.0"
+description = "Self-hosted AI image generation pipeline for alternative media covers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Art Capstone Student", email = "student@example.com"}
+]
+dependencies = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+    "diffusers>=0.35.0",
+    "transformers>=4.45.0",
+    "accelerate>=1.2.0",
+    "safetensors>=0.4.0",
+    "pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "rich>=13.0.0",
+    "psutil>=6.0.0",
+    "pydantic>=2.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "pytest-cov>=4.0.0",
+    "pytest-bdd>=7.0.0",
+    "pytest-xdist>=3.3.0",
+    "black>=24.0.0",
+    "flake8>=7.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.8.0",
+]
+
+[project.scripts]
+art-capstone-generate = "scripts.generate:main"
+art-capstone-utils = "scripts.utils:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py310', 'py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true

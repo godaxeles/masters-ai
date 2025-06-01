@@ -1,0 +1,48 @@
+# Company Manual
+
+## TechCorp Solutions
+
+### Contact Information
+- Email: support@techcorpsolutions.com
+- Phone: 1-800-TECHCORP
+- Hours: Monday-Friday 6AM-6PM PST
+
+### Products
+
+#### CRM Pro
+Customer relationship management solution with contact management, 
+sales pipeline tracking, and customer communication history.
+
+Pricing:
+- Starter: $25/user/month
+- Professional: $50/user/month
+- Enterprise: $100/user/month
+
+### Account Management
+
+Password Reset:
+1. Go to login page
+2. Click "Forgot Password" 
+3. Enter email address
+4. Check email for instructions
+
+### Troubleshooting
+
+Login Issues:
+- Forgot password: Use "Forgot Password" link
+- Account locked: Wait 15 minutes or contact support
+
+Performance Issues:
+- Slow system: Clear browser cache
+- Slow reports: Reduce date range
+
+### FAQ
+
+Q: How do I add users?
+A: Go to Administration > User Management > Add User.
+
+Q: Is there a mobile app?
+A: Yes, available for iOS and Android.
+
+### Support
+Contact support@techcorpsolutions.com or call 1-800-TECHCORP.

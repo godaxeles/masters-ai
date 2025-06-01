@@ -1,0 +1,48 @@
+name: art_capstone
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.11  # Updated to Python 3.11 for better performance
+  - pip
+  - pytorch::pytorch>=2.5.0
+  - pytorch::torchvision>=0.20.0
+  - pytorch::torchaudio>=2.5.0
+  - numpy>=1.24.0
+  - pillow>=10.0.0
+  - scipy>=1.11.0
+  - matplotlib>=3.7.0
+  - jupyter>=1.1.0
+  - git
+  - psutil>=6.0.0
+  - pip:
+    - diffusers>=0.35.0
+    - transformers>=4.45.0
+    - accelerate>=1.2.0
+    - safetensors>=0.4.0
+    - invisible-watermark>=0.2.0
+    - compel>=2.0.0
+    - opencv-python>=4.8.0
+    - pytest>=8.0.0
+    - pytest-mock>=3.12.0
+    - pytest-cov>=4.0.0
+    - pytest-bdd>=7.0.0
+    - pytest-xdist>=3.3.0
+    - pytest-html>=4.1.0
+    - markdown>=3.5.0
+    - huggingface-hub>=0.26.0
+    - datasets>=3.0.0
+    - wandb>=0.18.0
+    - black>=24.0.0
+    - flake8>=7.0.0
+    - isort>=5.13.0
+    - mypy>=1.8.0
+    - rich>=13.0.0
+    - typer>=0.15.0
+    - pydantic>=2.10.0
+    - pydantic-settings>=2.6.0
+    - lpips>=0.1.4
+    - pytorch-fid>=0.3.0
+    - memory-profiler>=0.61.0
+    - ipywidgets>=8.1.0
