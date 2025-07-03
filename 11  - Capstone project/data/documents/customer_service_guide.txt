@@ -1,0 +1,48 @@
+
+# Customer Service Guidelines
+
+## Customer Service Philosophy
+At Acme Technologies, we believe exceptional customer service is the foundation of our business.
+Every customer interaction is an opportunity to demonstrate our commitment to excellence.
+
+## Communication Standards
+When communicating with customers:
+- Respond to all inquiries within 24 hours
+- Use clear, professional language
+- Address customers by name
+- Listen actively and empathetically
+- Avoid technical jargon unless appropriate for the customer
+
+## Issue Resolution Process
+1. **Acknowledge**: Confirm the issue and thank the customer for bringing it to our attention
+2. **Understand**: Ask clarifying questions to fully understand the problem
+3. **Solve**: Provide a clear solution or action plan
+4. **Follow-up**: Check back with the customer to ensure satisfaction
+
+## Escalation Procedures
+Issues should be escalated when:
+- The issue is beyond your authority to resolve
+- The customer specifically requests escalation
+- The issue is complex and requires specialized knowledge
+
+Escalation path:
+- Level 1: Customer Service Representative
+- Level 2: Customer Service Team Lead
+- Level 3: Customer Service Manager
+- Level 4: Department Director
+
+## Customer Feedback
+Actively seek customer feedback through:
+- Post-interaction surveys
+- Regular check-ins with long-term customers
+- Annual customer satisfaction surveys
+- Product and service reviews
+
+## Difficult Customer Situations
+When dealing with upset customers:
+- Remain calm and professional
+- Never take comments personally
+- Focus on solutions rather than problems
+- Know when to involve a supervisor
+- Document the interaction thoroughly
+        

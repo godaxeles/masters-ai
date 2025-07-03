@@ -1,0 +1,35 @@
+
+# Acme Technologies Company Policy
+
+## Introduction
+This document outlines the official policies of Acme Technologies, effective as of January 1, 2023.
+All employees are expected to be familiar with and adhere to these policies.
+
+## Work Hours and Attendance
+Standard working hours are from 9:00 AM to 5:00 PM, Monday through Friday.
+Employees are expected to maintain regular attendance and be punctual.
+Flexible work arrangements may be approved by department managers.
+
+## Remote Work Policy
+Acme Technologies supports remote work for eligible positions.
+Employees working remotely must:
+- Maintain regular communication with their team
+- Be available during core hours (10:00 AM to 3:00 PM)
+- Ensure they have a secure and productive work environment
+- Attend virtual team meetings as required
+
+## Information Security
+All employees must comply with the company's information security guidelines:
+- Use strong, unique passwords for all company accounts
+- Enable two-factor authentication where available
+- Never share login credentials with anyone
+- Report any suspected security incidents immediately
+- Keep software and systems updated
+
+## Customer Data Protection
+Protection of customer data is of utmost importance:
+- Customer information should only be accessed on a need-to-know basis
+- Never store customer data on personal devices
+- Encrypt all files containing sensitive information
+- Comply with all applicable data protection regulations
+        
