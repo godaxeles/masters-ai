@@ -1,6 +1,0 @@
-{
-  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
-  "dimension": 384,
-  "total_vectors": 3644,
-  "metadata_count": 3644
-}
