@@ -9,3 +9,6 @@ matplotlib==3.7.2
 requests==2.31.0
 pypdf==3.17.0
 tiktoken==0.5.2
+restrictedpython==6.2
+tree-sitter
+tree-sitter-languages

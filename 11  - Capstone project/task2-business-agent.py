@@ -9,7 +9,15 @@ from datetime import datetime
 from pathlib import Path
 import openai
 from dotenv import load_dotenv
-from langchain_community.document_loaders import DirectoryLoader
+import matplotlib.pyplot as plt
+import io
+import sys
+import pandas as pd
+# from restrictedpython import compile_restricted, safe_builtins
+# from restrictedpython.restricted import RestrictedPython
+
+
+from langchain_core.documents import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
@@ -118,9 +126,11 @@ def initialize_document_store(docs_dir="data/documents"):
         # Create directory if it doesn't exist
         Path(docs_dir).mkdir(parents=True, exist_ok=True)
         
-        # Load documents from directory
-        loader = DirectoryLoader(docs_dir, glob="**/*.txt")
-        documents = loader.load()
+        documents = []
+        for file_path in Path(docs_dir).glob("*.txt"):
+            with open(file_path, "r", encoding="utf-8") as f:
+                content = f.read()
+                documents.append(Document(page_content=content, metadata={"source": str(file_path)}))
         
         if not documents:
             logger.warning("No documents found in directory")
@@ -323,6 +333,47 @@ def process_user_query(query):
     logger.info("Completed processing user query")
     return response
 
+# Function to execute user-provided code
+def execute_user_code(code, db_path):
+    st.subheader("Code Execution Output")
+    
+    # Create a dummy context for execution
+    # In a real scenario, you'd want to provide safe access to data
+    # For now, we'll provide a simple way to query the database
+    
+    # Redirect stdout to capture print statements
+    old_stdout = sys.stdout
+    redirected_output = io.StringIO()
+    sys.stdout = redirected_output
+    
+    try:
+        # Define a safe environment for execution (without restrictedpython)
+        _globals_ = {
+            'plt': plt,
+            'st': st,
+            'pd': pd, # Assuming pandas is imported and available
+            'query_database': query_database # Allow access to the query_database function
+        }
+
+        # Execute the code directly (without restrictedpython)
+        exec(code, _globals_)
+        
+        # Capture and display matplotlib figures
+        if plt.get_fignums():
+            for fig_num in plt.get_fignums():
+                fig = plt.figure(fig_num)
+                st.pyplot(fig)
+                plt.close(fig) # Close the figure to free memory
+        
+        output = redirected_output.getvalue()
+        if output:
+            st.code(output)
+        
+    except Exception as e:
+        st.error(f"Error during code execution: {e}")
+    finally:
+        sys.stdout = old_stdout # Restore stdout
+
 # Streamlit UI
 def main():
     st.set_page_config(page_title="Business Intelligence Agent", layout="wide")
@@ -414,6 +465,35 @@ def main():
             st.error("Invalid JSON format in parameters")
         except Exception as e:
             st.error(f"Error executing API action: {str(e)}")
+
+    st.markdown("--- ")
+    st.header("📊 Code Interpreter (Experimental)")
+    st.warning("⚠️ This feature executes Python code directly. Use with caution and only with trusted code.")
+    
+    code_input = st.text_area("Enter Python code to execute (e.g., for plotting):", height=200, value="""
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Example: Get product data and plot a histogram of prices
+products = query_database("SELECT name, price FROM products")
+if products:
+    df = pd.DataFrame(products)
+    plt.figure(figsize=(8, 6))
+    plt.hist(df['price'], bins=5, edgecolor='black')
+    plt.title('Product Price Distribution')
+    plt.xlabel('Price')
+    plt.ylabel('Number of Products')
+    plt.grid(axis='y', alpha=0.75)
+    st.write("Histogram generated successfully!")
+else:
+    st.write("No product data found to plot.")
+""")
+    
+    if st.button("Execute Code"):
+        if code_input:
+            execute_user_code(code_input, db_path)
+        else:
+            st.warning("Please enter some code to execute.")
 
 # Entry point
 if __name__ == "__main__":
