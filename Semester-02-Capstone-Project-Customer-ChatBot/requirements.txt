@@ -1,0 +1,18 @@
+# RAG Customer Support Chatbot - HuggingFace Spaces Requirements
+# Optimized for fast deployment and low resource usage
+
+# Core Framework
+streamlit>=1.28.0
+
+# AI/ML Libraries (lightweight versions)
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.4
+torch>=2.0.0
+transformers>=4.35.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Utilities
+python-dotenv>=1.0.0
