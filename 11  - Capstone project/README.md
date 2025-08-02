@@ -1,173 +1,99 @@
-# Business Intelligence Agent
+# Real Estate Chatbot & Data Viewer
 
-This project implements an AI agent that retrieves information from multiple datasources (database and documents) and presents it through a user-friendly Streamlit interface.
+This project is a **Streamlit-based** web application that allows users to interact with a **real estate database** using **SQL queries** and **OpenAI's API**. The app displays queried data in a dataframe and a map, while also providing a chatbot interface for natural language interactions.
 
 ## Features
 
-- **Database Integration**: Queries a SQLite database with business information
-- **Document Retrieval**: Uses FAISS for semantic search of relevant document chunks
-- **LLM Integration**: Only sends relevant data to the LLM, not the entire datasource
-- **Streamlit UI**: User-friendly interface with chat functionality
-- **API Integration**: Ability to call external APIs for various business actions
-- **Business Dashboard**: Displays key business metrics in the sidebar
-- **Comprehensive Logging**: Tracks all operations for monitoring and debugging
-- **Security Features**: SQL injection prevention and input validation
+- **SQLite Database Integration**: Queries and retrieves real estate listings.
+- **Interactive Map**: Displays property locations using latitude and longitude.
+- **Chatbot Interface**: Allows users to query real estate data using natural language.
+- **Currency Conversion**: Converts property prices into different currencies using `freecurrencyapi`.
+- **Automated SQL Query Handling**: Converts natural language queries into SQL commands.
 
-## Prerequisites
+## Technologies Used
 
-- Python 3.8 or higher
-- OpenAI API key
+- **Python**
+- **Streamlit**
+- **SQLite**
+- **OpenAI API**
+- **freecurrencyapi**
+- **Pandas**
+- **Dotenv**
+- **Tenacity** (for retry logic)
 
 ## Installation
 
+### Prerequisites
+
+Make sure you have **Python 3.8+** installed on your system.
+
+### Setup
+
 1. Clone this repository:
-```bash
-git clone https://github.com/godaxeles/masters-ai.git
-cd business-intelligence-agent
-```
+
+   ```bash
+   git clone <repository_url>
+   cd <repository_name>
+   ```
 
 2. Create a virtual environment and activate it:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-```
 
-3. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-4. Create a `.env` file in the project root directory with your API keys:
-```
-OPENAI_API_KEY=your_openai_api_key_here
-API_BASE_URL=https://api.example.com
-API_KEY=your_api_key_here
-```
+3. Install dependencies:
 
-5. Set up the database and sample documents:
-```bash
-python setup_database.py
-python create_documents.py
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Data Sources
+4. Create a `.env` file in the root directory and set your API keys:
 
-### Database
-
-The project uses a SQLite database with the following tables:
-- `business_info`: General company information
-- `products`: Product catalog
-- `orders`: Customer orders
-- `order_items`: Items within each order
-
-### Documents
-
-Sample business documents in the `/data/documents` directory:
-- Company policies
-- Product manuals
-- Customer service guidelines
-- Sales strategies
+   ```env
+   OPENAI_API_KEY=your_openai_api_key
+   FREECURRENCYAPI_KEY=your_freecurrencyapi_key
+   MY_DATABASE=your_database_path
+   ```
 
 ## Usage
 
-Run the Streamlit application:
+### Running the App
+
+Run the Streamlit app using:
 
 ```bash
 streamlit run app.py
 ```
 
-This will start the web interface on http://localhost:8501
+### Querying the Database
 
-## Example Queries and Results
+- Default query: `SELECT * FROM buildings_with_coordinates ORDER BY project_no ASC;`
+- Users can enter **natural language queries**, which will be converted to SQL.
+- The chatbot assists in retrieving and converting data.
 
-### Database Query
+### Currency Conversion
 
-```
-What are our top-selling products?
-```
+- The app supports currency conversion using `freecurrencyapi`.
+- Supported currencies include **USD, EUR, JPY, GBP, AUD, CAD, etc.**
 
-#### Result:
-![Database Query Result](screenshots/db_query_result.png)
+## Database Schema
 
-### Document Query
+The `buildings_with_coordinates` table includes fields such as:
 
-```
-What is our remote work policy?
-```
+- `project_no`: Unique identifier for each project.
+- `city`: City name where the building is located.
+- `building_name`: Name of the building or complex.
+- `price_per_sqm`: Price per square meter.
+- `latitude`, `longitude`: Coordinates for mapping.
 
-#### Result:
-![Document Query Result](screenshots/doc_query_result.png)
+For the full schema, refer to the `database_schema` section in the code.
 
-### API Call
+## API Integration
 
-```
-Action: Create Ticket
-Parameters: {"priority": "high", "subject": "Server outage", "description": "Customer reporting server connectivity issues"}
-```
+- **OpenAI API**: Generates SQL queries from natural language inputs.
+- **freecurrencyapi**: Retrieves live exchange rates.
 
-#### Result:
-![API Call Result](screenshots/api_call_result.png)
+![Real Estate Chatbot](./Real%20estate%20chatbot.png)  
 
-## Implementation Details
-
-### Database Integration
-
-- Secure parameterized SQL queries to prevent injection attacks
-- Efficient data retrieval with optimized queries
-- Data transformation for LLM consumption
-
-### Document Retrieval
-
-- Document loading and chunking for efficient processing
-- Vector embeddings using OpenAI Embeddings
-- FAISS vector store for fast similarity search
-- Relevance-based chunk selection
-
-### Query Processing
-
-- Intelligent source determination (database, documents, or both)
-- Context compilation from multiple sources
-- Structured prompt engineering for optimal LLM responses
-
-### External API Integration
-
-- Secure API calls with proper error handling
-- JSON validation for request payloads
-- Comprehensive logging of API interactions
-
-### Security Measures
-
-- SQL injection prevention through input sanitization
-- API request validation and error handling
-- Environment variable management for secrets
-
-## Project Structure
-
-```
-business-intelligence-agent/
-├── app.py                 # Main Streamlit application
-├── setup_database.py      # Database setup script
-├── create_documents.py    # Document creation script
-├── data/                  # Data directory
-│   ├── business_data.db   # SQLite database
-│   └── documents/         # Document files
-├── .env                   # Environment variables
-├── requirements.txt       # Dependencies
-└── README.md              # Documentation
-```
-
-## Logging
-
-Logs are saved to `app.log` and include information about:
-- Database queries
-- Document retrievals
-- API calls
-- LLM interactions
-- User queries
-
-## Future Enhancements
-
-- Integration with more data sources
-- Advanced NLP for better query understanding
-- More sophisticated visualization capabilities
-- User authentication and role-based access control
