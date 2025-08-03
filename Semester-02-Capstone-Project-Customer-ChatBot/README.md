@@ -1,3 +1,11 @@
+https://huggingface.co/spaces/saLeeh/RAG-Chat-Bot
+О чём статья "Data1.pdf"?
+Какие методы предобработки описаны в "Data2.pdf"?
+Сравни подходы к оценке качества модели в "Data1.pdf" и "Data3.pdf".
+Приведи цитату по ключевому слову "машинное обучение" из "Data3.pdf".
+На основе всех трёх PDF предложи улучшение процесса анализа.
+
+
 # Document RAG Chatbot with Streamlit and Ticket Integration
 
 This application provides an interactive web interface built with Streamlit to chat with your PDF documents using a Retrieval-Augmented Generation (RAG) system. It leverages LangChain, FAISS, and OpenAI to provide answers based on the content of the documents. If the system cannot find a relevant answer in the documents, it offers the user the option to create a support ticket in either Trello or Jira.
