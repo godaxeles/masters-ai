@@ -1,0 +1,15 @@
+company:
+  name: "Contoso Motors Support"
+  contact_email: "support@contoso-motors.example"
+  contact_phone: "+1-202-555-0142"
+  homepage: "https://www.contoso-motors.example"
+retrieval:
+  top_k: 6
+  max_context_chars: 12000
+  min_score: 0.3
+llm:
+  temperature: 0.1
+  max_tokens: 700
+  provider_fallback: "hf"
+ui:
+  enable_ticket_prompt: true
